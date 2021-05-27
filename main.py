@@ -21,7 +21,8 @@ getAllIDPinterest("https://www.pinterest.com/pin/91268329930642744/")
 listID=getIDFromHTML("./Photos/html.txt")
 count=0
 for id in listID:
-    count += getPic(getLinkPin(id), "./Photos/"+str(id)+ ".jpg")
+    linkFromDB = getLinkPin(id)
+    count += getPic(linkFromDB, "./Photos/"+str(id)+ linkFromDB[len(linkFromDB)-5:len(linkFromDB)])
 #ref.close()
 count -= fix("\\Photos\\")
 print(count)
